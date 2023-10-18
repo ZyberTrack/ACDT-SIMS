@@ -20,9 +20,9 @@ namespace SSPT_ACDT_ISMS_Project
         static void Login()
         {
             // Sorgt dafür, dass man trotz nicht Vertrauenswürdiger SSL Verbindung connecten kann
-            ServicePointManager.ServerCertificateValidationCallback = delegate { return true; };
+            //ServicePointManager.ServerCertificateValidationCallback = delegate { return true; };
 
-            string connectionString = "Data Source=ZYBERTRACK-PC\\SQLEXPRESS;Database=ISMS-Repository";
+            string connectionString = "Server=localhost,1433;Database=ISMS-REPO;User=sa;Password=12qwasyxcvfgtz&/;Encrypt=False;\r\n";
             DatabaseLogin login = new DatabaseLogin(connectionString);
 
             Console.Write("Benutzername: ");

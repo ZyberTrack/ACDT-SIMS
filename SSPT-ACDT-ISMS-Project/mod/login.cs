@@ -20,7 +20,7 @@ namespace SSPT_ACDT_ISMS_Project.mod
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-
+                Console.Clear();
                 connection.Open();
 
                 // SQL-Abfrage, um Benutzerdaten abzurufen
@@ -42,7 +42,9 @@ namespace SSPT_ACDT_ISMS_Project.mod
                 connection.Close();
             } // Die Verbindung wird automatisch geschlossen, wenn der using-Block verlassen wird.
 
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("Anmeldung fehlgeschlagen. Bitte überprüfen Sie Ihren Benutzernamen und Ihr Passwort.");
+            Console.ResetColor();
             return false;
         }
     }
