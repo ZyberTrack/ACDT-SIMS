@@ -21,7 +21,7 @@ namespace SSPT_ACDT_ISMS_Project.mod
         public int Display()
         {
             int choice = -1;
-            int currentOption = -1;
+            int currentOption = 0;
             ConsoleKey key;
 
             do
@@ -57,7 +57,7 @@ namespace SSPT_ACDT_ISMS_Project.mod
             {
                 if (i == currentOption)
                 {
-                    Console.ForegroundColor = ConsoleColor.DarkRed; // marks the chosen option
+                    Console.ForegroundColor = ConsoleColor.Blue; // marks the chosen option
                 }
                 Console.WriteLine($"({i + 1}) {options[i]}"); // displays the Options
                 Console.ResetColor();

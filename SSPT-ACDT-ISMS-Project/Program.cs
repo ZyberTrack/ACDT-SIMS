@@ -9,10 +9,16 @@ namespace SSPT_ACDT_ISMS_Project
     {
 
         static void Main(string[] args)
-        {   
-            Login();
+        {
+            bool endProgram = false;
+            while (endProgram == false)
+            {
+                Console.Clear();
+                endProgram = Login();
+            }
+ 
         }
-        static void Login()
+        static bool Login()
         {
             string connectionString = "Server=localhost,1433;Database=ISMS-REPO;User=sa;Password=12qwasyxcvfgtz&/;Encrypt=False;\r\n";
             DatabaseLogin login = new DatabaseLogin(connectionString);
@@ -20,27 +26,37 @@ namespace SSPT_ACDT_ISMS_Project
             Console.Write("Benutzername: ");
             string username = Console.ReadLine();
             Console.Write("Passwort: ");
-            string password = Console.ReadLine();
+            PasswordInput passwordInput = new PasswordInput(); // PW Eingabe verschteckt
+            string password = passwordInput.GetPassword();
 
             bool loggedIn = login.Authenticate(username, password);
 
             if (loggedIn == true)
             {
                 // Dauerschleife um eingeloggt zu bleiben
-                bool endProgram = false; // variable zum beenden des Programms
-                while (endProgram == false)
+                int endProgram = -1; // variable zum beenden des Programms
+                while (endProgram == -1)
                 {
                     endProgram = MenuDisplay(username, password, connectionString); // Hier können Sie den angemeldeten Benutzer weiterleiten oder andere Aktionen ausführen.
                 }
+                if(endProgram == 0)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
             }
-
+            return false;
         }
-        static bool MenuDisplay(string username, string password, string connectionString)   // Menü des Programms - menü Punkte hier zu bearbeiten
+        static int MenuDisplay(string username, string password, string connectionString)   // Menü des Programms - menü Punkte hier zu bearbeiten
         {
             List<string> menuOptions = new List<string>
             {
                 "Event Management",
                 "Benutzerverwaltung",
+                "Ausloggen",
                 "Das Programm beenden"
             };
 
@@ -75,11 +91,11 @@ namespace SSPT_ACDT_ISMS_Project
                 else
                 {
 
-                    return false; //zurück zum Menü Programm wird nicht beendet
+                    return -1; //zurück zum Menü Programm wird nicht beendet
                 }
 
 
-                return false; //Programm wird nicht beendet
+                return -1; //Programm wird nicht beendet
             }
 
             // Benutzerverwaltung -- nur für admins
@@ -109,23 +125,31 @@ namespace SSPT_ACDT_ISMS_Project
                 else
                 {
 
-                    return false; //zurück zum Menü Programm wird nicht beendet
+                    return -1; //zurück zum Menü Programm wird nicht beendet
                 }
 
-                return false; //Programm wird nicht beendet
+                return -1; //Programm wird nicht beendet
             }
             else if (choice == 1 && checkAdmin.isAdmin(username, password, connectionString) == false)
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Sie haben keine Berechtigung die Benutzer zu verwalten");
                 Console.ReadKey();
+                Console.ResetColor();
                 Console.Clear();
-                return false; //zurück zum Menü Programm wird nicht beendet
+                return -1; //zurück zum Menü Programm wird nicht beendet
+            }
+
+            else if (choice == 2)
+            {
+                //true user wird nur ausgelogt
+                return 0;
             }
 
             else
             {
                 Console.Clear();
-                return true; //Programm wird beendet
+                return 1; //Programm wird beendet
             }
         }
     }
