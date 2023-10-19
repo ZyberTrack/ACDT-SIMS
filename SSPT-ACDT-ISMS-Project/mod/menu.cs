@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using Microsoft.Data.SqlClient;
+using System.Data;
 
 namespace SSPT_ACDT_ISMS_Project.mod
 {
@@ -16,7 +18,7 @@ namespace SSPT_ACDT_ISMS_Project.mod
             options = menuOptions;
         }
 
-        public void Display()
+        public int Display()
         {
             int choice = -1;
             int currentOption = -1;
@@ -40,9 +42,12 @@ namespace SSPT_ACDT_ISMS_Project.mod
                 {
                     choice = currentOption;
                 }
+
+ 
+
             } while (choice == -1);
 
-            ProcessChoice(choice);
+            return choice; // gibt due auswahl zurück um sie weiter zu verarbeiten - macht menu Klasse reusable
         }
 
         private void ShowOptions(int currentOption)
@@ -58,17 +63,6 @@ namespace SSPT_ACDT_ISMS_Project.mod
                 Console.ResetColor();
             }
             Console.WriteLine("\nWählen Sie eine Option mit den Pfeiltasten.");
-        }
-
-        private void ProcessChoice(int choice)
-        {
-            Console.Clear(); // Löscht die Konsolenausgabe
-
-            Console.WriteLine($"Option {choice + 1}: {options[choice]} wurde ausgewählt.");
-            // Hier können Sie die Logik für Ihre Menüoptionen hinzufügen
-
-            Console.WriteLine("Drücken Sie eine beliebige Taste, um fortzufahren...");
-            Console.ReadKey();
         }
     }
 
