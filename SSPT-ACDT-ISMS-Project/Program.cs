@@ -1,4 +1,5 @@
 ﻿using SSPT_ACDT_ISMS_Project.mod;
+using SSPT_ACDT_ISMS_Project.repo;
 using System.Net;
 using System.Net.Quic;
 
@@ -67,9 +68,10 @@ namespace SSPT_ACDT_ISMS_Project
             if (choice == 0) 
             {
                 Console.Clear(); // Löscht die Konsolenausgabe
-
-                // Weitere Optionen im Event Management
-                menuOptions = new List<string>
+                while (true)
+                {
+                    // Weitere Optionen im Event Management
+                    menuOptions = new List<string>
                 {
                     "Einen neuen Vorfall Erfassen",
                     "Offene Vorfälle",
@@ -77,25 +79,23 @@ namespace SSPT_ACDT_ISMS_Project
                     "Zurück zum Menü"
                 };
 
-                menu = new ConsoleMenu(menuOptions);
-                int secChoice = menu.Display();
+                    menu = new ConsoleMenu(menuOptions);
+                    int secChoice = menu.Display();
 
-                if (secChoice == 0)
-                {
+                    if (secChoice == 0)
+                    {
 
+                    }
+                    else if (secChoice == 1)
+                    {
+
+                    }
+                    else
+                    {
+
+                        return -1; //zurück zum Menü Programm wird nicht beendet
+                    }
                 }
-                else if (secChoice == 1)
-                {
-
-                }
-                else
-                {
-
-                    return -1; //zurück zum Menü Programm wird nicht beendet
-                }
-
-
-                return -1; //Programm wird nicht beendet
             }
 
             // Benutzerverwaltung -- nur für admins
@@ -103,32 +103,37 @@ namespace SSPT_ACDT_ISMS_Project
             {
                 Console.Clear(); // Löscht die Konsolenausgabe
 
-                // Weitere Optionen im Event Management
-                menuOptions = new List<string>
+                while (true)
+                {
+                    // Weitere Optionen im Event Management
+                    menuOptions = new List<string>
                 {
                     "Benutzer Hinzufügen",
                     "Benutzer Entfernen",
                     "Zurück zum Menü"
                 };
 
-                menu = new ConsoleMenu(menuOptions);
-                int secChoice = menu.Display();
+                    menu = new ConsoleMenu(menuOptions);
+                    int secChoice = menu.Display();
 
-                if (secChoice == 0)
-                {
+                    if (secChoice == 0)
+                    {
 
+                    }
+                    else if (secChoice == 1)
+                    {
+                        //Ausgabe der aktuellen Benutzer
+                        Console.Clear();
+                        DisplayBenutzerTable table = new DisplayBenutzerTable(connectionString);
+                        table.ShowTable("Benutzer");
+                        Console.ReadKey();
+                    }
+                    else
+                    {
+
+                        return -1; //zurück zum Menü Programm wird nicht beendet
+                    }
                 }
-                else if (secChoice == 1)
-                {
-
-                }
-                else
-                {
-
-                    return -1; //zurück zum Menü Programm wird nicht beendet
-                }
-
-                return -1; //Programm wird nicht beendet
             }
             else if (choice == 1 && checkAdmin.isAdmin(username, password, connectionString) == false)
             {
