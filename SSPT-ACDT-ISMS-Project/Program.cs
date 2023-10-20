@@ -95,16 +95,19 @@ namespace SSPT_ACDT_ISMS_Project
                     {
                         Console.Clear();
                         logDisplay.GetLogEntries((LogEntryStatus)1);
+                        Console.ReadKey();
                     }
                     else if (secChoice == 2)
                     {
                         Console.Clear();
                         logDisplay.GetLogEntries((LogEntryStatus)3);
+                        Console.ReadKey();
                     }
                     else if (secChoice == 3)
                     {
                         Console.Clear();
-                        logDisplay.GetLogEntries((LogEntryStatus)2);
+                        logDisplay.GetLogEntries(0);
+                        Console.ReadKey();
                     }
                     else
                     {
