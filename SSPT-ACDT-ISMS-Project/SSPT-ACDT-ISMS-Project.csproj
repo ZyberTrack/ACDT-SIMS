@@ -6,6 +6,7 @@
     <RootNamespace>SSPT_ACDT_ISMS_Project</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <LangVersion>preview</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>

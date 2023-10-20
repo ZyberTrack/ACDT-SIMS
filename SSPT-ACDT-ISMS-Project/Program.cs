@@ -65,7 +65,7 @@ namespace SSPT_ACDT_ISMS_Project
             int choice = menu.Display();
 
             // Event Management
-            if (choice == 0) 
+            if (choice == 0 && checkUser.isUser(username, connectionString) == true) 
             {
                 Console.Clear(); // Löscht die Konsolenausgabe
                 while (true)
@@ -110,35 +110,64 @@ namespace SSPT_ACDT_ISMS_Project
                 {
                     "Benutzer Hinzufügen",
                     "Benutzer Entfernen",
+                    "Alle Benutzer anzeigen",
                     "Zurück zum Menü"
                 };
 
                     menu = new ConsoleMenu(menuOptions);
                     int secChoice = menu.Display();
 
-                    if (secChoice == 0)
+                    if (secChoice == 0 && checkUser.isUser(username, connectionString) == true)
                     {
-
+                        Console.Clear();
+                        UserRegistration user = new UserRegistration(connectionString);
+                        user.RegisterUser();
+                        Console.ReadKey();
                     }
-                    else if (secChoice == 1)
+                    else if (secChoice == 1 && checkUser.isUser(username, connectionString) == true)
                     {
                         //Ausgabe der aktuellen Benutzer
                         Console.Clear();
                         DisplayBenutzerTable table = new DisplayBenutzerTable(connectionString);
                         table.ShowTable("Benutzer");
+
+                        Console.WriteLine("\n");
+                        //Klasseaufruf zum löschen der Benutzer
+                        UserRemoval user = new UserRemoval(connectionString);
+                        user.RemoveUser();
                         Console.ReadKey();
                     }
+                    else if(secChoice == 2 && checkUser.isUser(username, connectionString) == true)
+                    {
+                        //Ausgabe der aktuellen Benutzer
+                        Console.Clear();
+                        DisplayBenutzerTable table = new DisplayBenutzerTable(connectionString);
+                        table.ShowTable("Benutzer");
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine("\nDrüciken Sie eine beliebige Taste um zurück zu kehren.");
+                        Console.ResetColor();
+                        Console.ReadKey();
+                    }
+                    else if (secChoice == 0 || secChoice == 1 || secChoice == 2 && checkUser.isUser(username, connectionString) == false) // Wenn benutzer nicht mehr vorhanden Aktion verweigern!
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("Sie haben keine Berechtigung für diese Aktion.");
+                        Console.ReadKey();
+                        Console.ResetColor();
+                        Console.Clear();
+                        return -1; //zurück zum Menü Programm wird nicht beendet
+                    }
+
                     else
                     {
-
                         return -1; //zurück zum Menü Programm wird nicht beendet
                     }
                 }
             }
-            else if (choice == 1 && checkAdmin.isAdmin(username, password, connectionString) == false)
+            else if (choice == 0 && checkUser.isUser(username, connectionString) == false || choice == 1 && checkAdmin.isAdmin(username,password,connectionString) == false) // Wenn benutzer nicht vorhanden oder kein Zugriffsrecht Aktion verweigern!
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Sie haben keine Berechtigung die Benutzer zu verwalten");
+                Console.WriteLine("Sie haben keine Berechtigung für diese Aktion.");
                 Console.ReadKey();
                 Console.ResetColor();
                 Console.Clear();

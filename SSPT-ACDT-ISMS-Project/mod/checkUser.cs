@@ -1,6 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -9,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace SSPT_ACDT_ISMS_Project.mod
 {
-    internal class checkAdmin
+    internal class checkUser
     {
-        public static bool isAdmin(string username, string password, string connectionString)
+        public static bool isUser(string username, string connectionString)
         {
 
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -20,12 +19,10 @@ namespace SSPT_ACDT_ISMS_Project.mod
                 connection.Open();
 
                 // SQL-Abfrage, um Benutzerdaten abzurufen
-                string query = "SELECT COUNT(*) FROM Benutzer WHERE Benutzername = @Username AND Passwort = @Password AND Rolle = @Role";
+                string query = "SELECT COUNT(*) FROM Benutzer WHERE Benutzername = @Username";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.Add(new SqlParameter("@Username", SqlDbType.VarChar)).Value = username;
-                    command.Parameters.Add(new SqlParameter("@Password", SqlDbType.VarChar)).Value = password;
-                    command.Parameters.Add(new SqlParameter("@Role", SqlDbType.VarChar)).Value = "admin";
 
                     int userCount = (int)command.ExecuteScalar();
 
@@ -45,6 +42,5 @@ namespace SSPT_ACDT_ISMS_Project.mod
             } // Die Verbindung wird automatisch geschlossen, wenn der using-Block verlassen wird. 
             return false;
         }
-
     }
 }
