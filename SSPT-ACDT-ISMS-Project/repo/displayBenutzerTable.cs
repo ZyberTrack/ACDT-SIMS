@@ -38,6 +38,7 @@ namespace SSPT_ACDT_ISMS_Project.repo
                             string rang = reader.GetString(2);
                             Console.WriteLine($"Benutzername: {benutzername}, Rolle: {rang}");
                         }
+                        reader.Close();
                     }
                 }
             }

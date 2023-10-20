@@ -75,6 +75,7 @@ namespace SSPT_ACDT_ISMS_Project
                 {
                     "Einen neuen Vorfall Erfassen",
                     "Offene Vorfälle",
+                    "Eskalierte Vorfälle",
                     "Alle Vorfälle",
                     "Zurück zum Menü"
                 };
@@ -82,17 +83,31 @@ namespace SSPT_ACDT_ISMS_Project
                     menu = new ConsoleMenu(menuOptions);
                     int secChoice = menu.Display();
 
+                    LogEntryManager logDisplay = new LogEntryManager(connectionString);
+
                     if (secChoice == 0)
                     {
-
+                        Console.Clear();
+                        SecurityIncident log = new SecurityIncident(connectionString);
+                        log.InsertIncident(username);
                     }
                     else if (secChoice == 1)
                     {
-
+                        Console.Clear();
+                        logDisplay.GetLogEntries((LogEntryStatus)1);
+                    }
+                    else if (secChoice == 2)
+                    {
+                        Console.Clear();
+                        logDisplay.GetLogEntries((LogEntryStatus)3);
+                    }
+                    else if (secChoice == 3)
+                    {
+                        Console.Clear();
+                        logDisplay.GetLogEntries((LogEntryStatus)2);
                     }
                     else
                     {
-
                         return -1; //zurück zum Menü Programm wird nicht beendet
                     }
                 }
