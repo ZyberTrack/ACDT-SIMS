@@ -4,11 +4,9 @@ using System.Net;
 using System.Net.Quic;
 
 namespace SSPT_ACDT_ISMS_Project
-
 {
     internal class Program
     {
-
         static void Main(string[] args)
         {
             bool endProgram = false;
@@ -17,7 +15,6 @@ namespace SSPT_ACDT_ISMS_Project
                 Console.Clear();
                 endProgram = Login();
             }
- 
         }
         static bool Login()
         {
