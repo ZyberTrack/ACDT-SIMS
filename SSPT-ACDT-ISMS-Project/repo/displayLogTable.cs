@@ -43,19 +43,18 @@ namespace SSPT_ACDT_ISMS_Project.repo
                             // Hier können Sie die Daten aus dem Reader lesen und ausgeben
                             // Zum Beispiel:
 
-                            int id = 0;
                             string getIdQuery = "SELECT SCOPE_IDENTITY()";
                             using (SqlCommand getIdCommand = new SqlCommand(getIdQuery, connection))
                             {
-                                //id = Convert.ToInt32(getIdCommand.ExecuteScalar());
-                                DateTime zeitstempel = reader.GetDateTime(0);
-                                string schweregrad = reader.GetString(1);
-                                string statusT = reader.GetString(2);
-                                string melder = reader.GetString(3);
-                                string bearbeiter = reader.GetString(4);
-                                string beschreibung = reader.GetString(5);
-                                string cve = reader.GetString(6);
-                                string system = reader.GetString(7);
+                                int id = reader.GetInt32(0);
+                                DateTime zeitstempel = reader.GetDateTime(1);
+                                string schweregrad = reader.GetString(2);
+                                string statusT = reader.GetString(3);
+                                string melder = reader.GetString(4);
+                                string bearbeiter = reader.GetString(5);
+                                string beschreibung = reader.GetString(6);
+                                string cve = reader.GetString(7);
+                                string system = reader.GetString(8);
 
                                 string output = $"ID: {id}, Zeitstempel: {zeitstempel}, Schweregrad: {schweregrad}, Status: {statusT}, Melder: {melder}, Bearbeiter: {bearbeiter}, Beschreibung: {beschreibung}, CVE: {cve}, System: {system}";
                                 output = output.Replace(" ", "");

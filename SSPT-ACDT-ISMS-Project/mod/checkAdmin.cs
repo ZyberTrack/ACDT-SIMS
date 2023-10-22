@@ -1,15 +1,11 @@
 ﻿using Microsoft.Data.SqlClient;
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace SSPT_ACDT_ISMS_Project.mod
 {
-    internal class checkAdmin
+    //Public wegen den Unit Tests!
+    public class checkAdmin
     {
         public static bool isAdmin(string username, string password, string connectionString)
         {

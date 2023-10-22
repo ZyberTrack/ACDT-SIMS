@@ -1,9 +1,4 @@
-﻿using System;
-using System.Data;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data;
 using Microsoft.Data.SqlClient;
 using SSPT_ACDT_ISMS_Project.mod;
 
@@ -65,7 +60,7 @@ namespace SSPT_ACDT_ISMS_Project.repo
                 connection.Open();
 
                 string sqlQuery = "INSERT INTO log (Zeitstempel, Schweregrad, Status, Melder, Bearbeiter, Beschreibung, CVE, System) " +
-                    "VALUES (@Zeitstempel, @Schweregrad, @Status, @Melder, @Bearbeiter, @Beschreibung, @CVE, @System);";
+                    "VALUES ( @Zeitstempel, @Schweregrad, @Status, @Melder, @Bearbeiter, @Beschreibung, @CVE, @System);";
 
                 using (SqlCommand command = new SqlCommand(sqlQuery, connection))
                 {
