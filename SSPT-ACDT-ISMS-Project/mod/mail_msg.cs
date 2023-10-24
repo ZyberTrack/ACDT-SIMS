@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SSPT_ACDT_ISMS_Project.mod
+﻿namespace SSPT_ACDT_ISMS_Project.mod
 {
-    internal class mail_msg
+    internal class Mail_msg
     {
+        public static void SendMail()
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Email wird versendet");
+            Console.ResetColor();
+        }
     }
 }

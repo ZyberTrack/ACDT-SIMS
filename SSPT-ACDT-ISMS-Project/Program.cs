@@ -1,7 +1,5 @@
 ﻿using SSPT_ACDT_ISMS_Project.mod;
 using SSPT_ACDT_ISMS_Project.repo;
-using System.Net;
-using System.Net.Quic;
 
 namespace SSPT_ACDT_ISMS_Project
 {
@@ -62,7 +60,7 @@ namespace SSPT_ACDT_ISMS_Project
             int choice = menu.Display();
 
             // Event Management
-            if (choice == 0 && checkUser.isUser(username, connectionString) == true) 
+            if (choice == 0 && CheckUser.IsUser(username, connectionString) == true) 
             {
                 Console.Clear(); // Löscht die Konsolenausgabe
                 while (true)
@@ -72,7 +70,7 @@ namespace SSPT_ACDT_ISMS_Project
                 {
                     "Einen neuen Vorfall Erfassen",
                     "Offene Vorfälle",
-                    "Eskalierte Vorfälle",
+                    "Notifizierung",
                     "Alle Vorfälle",
                     "Zurück zum Menü"
                 };
@@ -97,7 +95,7 @@ namespace SSPT_ACDT_ISMS_Project
                     else if (secChoice == 2)
                     {
                         Console.Clear();
-                        logDisplay.GetLogEntries((LogEntryStatus)3);
+                        Notifizierung.SendeNotifizierung();
                         Console.ReadKey();
                     }
                     else if (secChoice == 3)
@@ -114,7 +112,7 @@ namespace SSPT_ACDT_ISMS_Project
             }
 
             // Benutzerverwaltung -- nur für admins
-            else if (choice == 1 && checkAdmin.isAdmin(username,password, connectionString) == true)
+            else if (choice == 1 && CheckAdmin.IsAdmin(username,password, connectionString) == true)
             {
                 Console.Clear(); // Löscht die Konsolenausgabe
 
@@ -132,14 +130,14 @@ namespace SSPT_ACDT_ISMS_Project
                     menu = new ConsoleMenu(menuOptions);
                     int secChoice = menu.Display();
 
-                    if (secChoice == 0 && checkUser.isUser(username, connectionString) == true)
+                    if (secChoice == 0 && CheckUser.IsUser(username, connectionString) == true)
                     {
                         Console.Clear();
                         UserRegistration user = new UserRegistration(connectionString);
                         user.RegisterUser();
                         Console.ReadKey();
                     }
-                    else if (secChoice == 1 && checkUser.isUser(username, connectionString) == true)
+                    else if (secChoice == 1 && CheckUser.IsUser(username, connectionString) == true)
                     {
                         //Ausgabe der aktuellen Benutzer
                         Console.Clear();
@@ -152,7 +150,7 @@ namespace SSPT_ACDT_ISMS_Project
                         user.RemoveUser();
                         Console.ReadKey();
                     }
-                    else if(secChoice == 2 && checkUser.isUser(username, connectionString) == true)
+                    else if(secChoice == 2 && CheckUser.IsUser(username, connectionString) == true)
                     {
                         //Ausgabe der aktuellen Benutzer
                         Console.Clear();
@@ -163,7 +161,7 @@ namespace SSPT_ACDT_ISMS_Project
                         Console.ResetColor();
                         Console.ReadKey();
                     }
-                    else if (secChoice == 0 || secChoice == 1 || secChoice == 2 && checkUser.isUser(username, connectionString) == false) // Wenn benutzer nicht mehr vorhanden Aktion verweigern!
+                    else if (secChoice == 0 || secChoice == 1 || secChoice == 2 && CheckUser.IsUser(username, connectionString) == false) // Wenn benutzer nicht mehr vorhanden Aktion verweigern!
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("Sie haben keine Berechtigung für diese Aktion.");
@@ -179,7 +177,7 @@ namespace SSPT_ACDT_ISMS_Project
                     }
                 }
             }
-            else if (choice == 0 && checkUser.isUser(username, connectionString) == false || choice == 1 && checkAdmin.isAdmin(username,password,connectionString) == false) // Wenn benutzer nicht vorhanden oder kein Zugriffsrecht Aktion verweigern!
+            else if (choice == 0 && CheckUser.IsUser(username, connectionString) == false || choice == 1 && CheckAdmin.IsAdmin(username,password,connectionString) == false) // Wenn benutzer nicht vorhanden oder kein Zugriffsrecht Aktion verweigern!
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Sie haben keine Berechtigung für diese Aktion.");

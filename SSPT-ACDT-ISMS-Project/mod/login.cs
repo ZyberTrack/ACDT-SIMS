@@ -5,14 +5,9 @@ namespace SSPT_ACDT_ISMS_Project.mod
 {
 
 
-    public class DatabaseLogin
+    public class DatabaseLogin(string connectionString)
     {
-        private string connectionString; // Verbindungszeichenfolge zur Datenbank
-
-        public DatabaseLogin(string connectionString)
-        {
-            this.connectionString = connectionString;
-        }
+        private string connectionString = connectionString; // Verbindungszeichenfolge zur Datenbank
 
         public bool Authenticate(string username, string password)
         {

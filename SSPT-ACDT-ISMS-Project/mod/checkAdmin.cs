@@ -5,9 +5,9 @@ using System.Data;
 namespace SSPT_ACDT_ISMS_Project.mod
 {
     //Public wegen den Unit Tests!
-    public class checkAdmin
+    public class CheckAdmin
     {
-        public static bool isAdmin(string username, string password, string connectionString)
+        public static bool IsAdmin(string username, string password, string connectionString)
         {
 
             using (SqlConnection connection = new SqlConnection(connectionString))

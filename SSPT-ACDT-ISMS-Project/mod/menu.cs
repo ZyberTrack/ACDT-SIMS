@@ -1,22 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Collections.Generic;
-using Microsoft.Data.SqlClient;
-using System.Data;
-
-namespace SSPT_ACDT_ISMS_Project.mod
+﻿namespace SSPT_ACDT_ISMS_Project.mod
 {
-    public class ConsoleMenu
+    public class ConsoleMenu(List<string> menuOptions)
     {
-        private List<string> options;
-
-        public ConsoleMenu(List<string> menuOptions)
-        {
-            options = menuOptions;
-        }
+        private List<string> options = menuOptions;
 
         public int Display()
         {

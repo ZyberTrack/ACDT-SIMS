@@ -16,7 +16,7 @@ namespace SSPT_ACDT_ISMS_Project.mod.Tests
             string connectionString = "Server=localhost,1433;Database=ISMS-REPO;User=sa;Password=12qwasyxcvfgtz&/;Encrypt=False;\r\n";
 
             // Act
-            bool isAdmin = checkAdmin.isAdmin(username, password, connectionString);
+            bool isAdmin = CheckAdmin.IsAdmin(username, password, connectionString);
 
             // Assert
             Assert.IsTrue(isAdmin);
@@ -31,7 +31,7 @@ namespace SSPT_ACDT_ISMS_Project.mod.Tests
             string connectionString = "Server=localhost,1433;Database=ISMS-REPO;User=sa;Password=12qwasyxcvfgtz&/;Encrypt=False;\r\n";
 
             // Act
-            bool isAdmin = checkAdmin.isAdmin(username, password, connectionString);
+            bool isAdmin = CheckAdmin.IsAdmin(username, password, connectionString);
 
             // Assert
             Assert.IsFalse(isAdmin);

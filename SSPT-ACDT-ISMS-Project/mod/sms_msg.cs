@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SSPT_ACDT_ISMS_Project.mod
+﻿namespace SSPT_ACDT_ISMS_Project.mod
 {
-    internal class sms_msg
+    internal class SMS_msg
     {
+        public static void SendSMS() 
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("SMS wird versendet");
+            Console.ResetColor();
+        }
     }
 }

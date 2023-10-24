@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace SSPT_ACDT_ISMS_Project.mod
 {
-    internal class checkUser
+    internal class CheckUser
     {
-        public static bool isUser(string username, string connectionString)
+        public static bool IsUser(string username, string connectionString)
         {
 
             using (SqlConnection connection = new SqlConnection(connectionString))

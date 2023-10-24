@@ -1,6 +1,4 @@
 ﻿using Microsoft.Data.SqlClient;
-using System.Data;
-using System;
 
 namespace SSPT_ACDT_ISMS_Project.repo
 {
