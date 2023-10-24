@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "ySUr91MYoclzFEZ4Oej/xIyuLcflV9tKRRZsQUW1PR7SDqMZj+waB70dW7kka7knmQXvxedZSbo0skpp+0I8mQ==",
+  "dgSpecHash": "ChY+CGWVCJ+zbPBb3pdDpy3Vhx1VxUe2fyJf1bV4fCTQgaY5/+ZanYTPGOvpjSm63yKQJG5PovLn9gd3GsnzwQ==",
   "success": true,
   "projectFilePath": "F:\\Eigene Daten\\Bibliothek\\Dokumente\\Bildung\\FH St.Pölten\\03_WS_23\\SSPT-ACDT\\Projekt\\C# Projekt des ISMS\\ACDT-ISMS-Projekt\\SSPT-ACDT-ISMS-Project\\SSPT-ACDT-ISMS-Project\\SSPT-ACDT-ISMS-Project.csproj",
   "expectedPackageFiles": [
@@ -37,6 +37,7 @@
     "C:\\Users\\vikto\\.nuget\\packages\\microsoft.sqlserver.server\\1.0.0\\microsoft.sqlserver.server.1.0.0.nupkg.sha512",
     "C:\\Users\\vikto\\.nuget\\packages\\microsoft.testplatform\\17.7.2\\microsoft.testplatform.17.7.2.nupkg.sha512",
     "C:\\Users\\vikto\\.nuget\\packages\\microsoft.visualbasic\\10.1.0\\microsoft.visualbasic.10.1.0.nupkg.sha512",
+    "C:\\Users\\vikto\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.19.4\\microsoft.visualstudio.azure.containers.tools.targets.1.19.4.nupkg.sha512",
     "C:\\Users\\vikto\\.nuget\\packages\\microsoft.win32.primitives\\4.3.0\\microsoft.win32.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\vikto\\.nuget\\packages\\microsoft.win32.registry\\4.3.0\\microsoft.win32.registry.4.3.0.nupkg.sha512",
     "C:\\Users\\vikto\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",

@@ -54,9 +54,15 @@ namespace SSPT_ACDT_ISMS_Project.repo
                                 string cve = reader.GetString(7);
                                 string system = reader.GetString(8);
 
-                                string output = $"ID: {id}, Zeitstempel: {zeitstempel}, Schweregrad: {schweregrad}, Status: {statusT}, Melder: {melder}, Bearbeiter: {bearbeiter}, Beschreibung: {beschreibung}, CVE: {cve}, System: {system}";
+                                beschreibung = beschreibung.Replace("  ", "_");
+                                beschreibung = beschreibung.Replace("_", "");
+                                beschreibung = beschreibung.Replace(" ", "_");
+
+                                string output = $"ID:_{id}, Zeitstempel:_{zeitstempel}, Schweregrad:_{schweregrad}, Status:_{statusT}, Melder:_{melder}, Bearbeiter:_{bearbeiter}, Beschreibung:_{beschreibung}, CVE:_{cve}, System:_{system}";
                                 output = output.Replace(" ", "");
                                 output = output.Replace(",", ",  ");
+                                output = output.Replace("_", " ");
+                                output = output.Replace(" ,", ",");
                                 //output = output.Replace(":", ": ");
                                 Console.WriteLine(output);
                             }

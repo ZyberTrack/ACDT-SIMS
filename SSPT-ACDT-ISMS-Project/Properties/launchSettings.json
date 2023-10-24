@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "SSPT-ACDT-ISMS-Project": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}
