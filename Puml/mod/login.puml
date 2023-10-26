@@ -1,0 +1,6 @@
+@startuml
+class DatabaseLogin {
+}
+- connectionString : string
++ Authenticate(username:string, password:string) : bool
+@enduml

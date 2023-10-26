@@ -1,0 +1,5 @@
+@startuml
+class SMS_msg {
+    + {static} SendSMS() : void
+}
+@enduml

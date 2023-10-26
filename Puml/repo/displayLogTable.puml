@@ -1,0 +1,13 @@
+@startuml
+class LogEntryManager {
+    - connectionString : string
+    + LogEntryManager(connectionStr:string)
+    + GetLogEntries(status:LogEntryStatus) : void
+}
+enum LogEntryStatus {
+    All,
+    Open,
+    Closed,
+    Escalated,
+}
+@enduml

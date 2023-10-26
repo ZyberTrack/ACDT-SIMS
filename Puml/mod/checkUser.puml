@@ -1,0 +1,5 @@
+@startuml
+class CheckUser {
+    + {static} IsUser(username:string, connectionString:string) : bool
+}
+@enduml

@@ -1,0 +1,5 @@
+@startuml
+class Mail_msg {
+    + {static} SendMail() : void
+}
+@enduml

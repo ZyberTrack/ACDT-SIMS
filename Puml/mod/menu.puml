@@ -1,0 +1,7 @@
+@startuml
+class ConsoleMenu {
+}
+- options : List<string>
++ Display() : int
+- ShowOptions(currentOption:int) : void
+@enduml

@@ -1,0 +1,97 @@
+@startuml
+
+class Program {
+    {static} - Main(args:string[]) : void
+    {static} - Login() : bool
+    {static} - MenuDisplay(username:string, password:string, connectionString:string) : int
+}
+
+class DatabaseLogin {
+    - connectionString : string
+    + Authenticate(username:string, password:string) : bool
+}
+
+class PasswordInput {
+    + GetPassword() : string
+}
+
+class ConsoleMenu {
+    - options : List<string>
+    + Display() : int
+    - ShowOptions(currentOption:int) : void
+}
+
+class CheckAdmin {
+    + {static} IsAdmin(username:string, password:string, connectionString:string) : bool
+}
+
+class CheckUser {
+    + {static} IsUser(username:string, connectionString:string) : bool
+}
+
+class Mail_msg {
+    + {static} SendMail() : void
+}
+
+class SMS_msg {
+    + {static} SendSMS() : void
+}
+
+class Notifizierung {
+    + {static} SendeNotifizierung() : void
+}
+
+
+class DisplayBenutzerTable {
+    - connectionString : string
+    + DisplayBenutzerTable(connectionString:string)
+    + ShowTable(table:string) : void
+}
+
+class LogEntryManager {
+    - connectionString : string
+    + LogEntryManager(connectionStr:string)
+    + GetLogEntries(status:LogEntryStatus) : void
+}
+
+class SecurityIncident {
+    - connectionString : string
+    + SecurityIncident(connectionString:string)
+    + InsertIncident(username:string) : void
+    - SelectSchweregrad() : Schweregrad
+    - SelectStatus() : Status
+}
+
+class UserRegistration {
+    - connectionString : string
+    + UserRegistration(connectionString:string)
+    + RegisterUser() : void
+    - SelectRole() : string
+}
+
+class UserRemoval {
+    - connectionString : string
+    + UserRemoval(connectionString:string)
+    + RemoveUser() : void
+}
+
+enum LogEntryStatus {
+    All,
+    Open,
+    Closed,
+    Escalated,
+}
+
+enum Schweregrad {
+    Niedrig,
+    Mittel,
+    Hoch,
+}
+
+enum Status {
+    Offen,
+    Geschlossen,
+    Eskaliert,
+}
+
+@enduml

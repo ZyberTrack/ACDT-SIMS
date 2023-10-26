@@ -1,0 +1,7 @@
+@startuml
+enum Schweregrad {
+    Niedrig,
+    Mittel,
+    Hoch,
+}
+@enduml

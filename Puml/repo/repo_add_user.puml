@@ -1,0 +1,8 @@
+@startuml
+class UserRegistration {
+    - connectionString : string
+    + UserRegistration(connectionString:string)
+    + RegisterUser() : void
+    - SelectRole() : string
+}
+@enduml

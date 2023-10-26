@@ -1,0 +1,7 @@
+@startuml
+class Program {
+    {static} - Main(args:string[]) : void
+    {static} - Login() : bool
+    {static} - MenuDisplay(username:string, password:string, connectionString:string) : int
+}
+@enduml

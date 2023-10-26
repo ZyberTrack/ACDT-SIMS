@@ -1,0 +1,4 @@
+@startuml
+class repo_close_log {
+}
+@enduml

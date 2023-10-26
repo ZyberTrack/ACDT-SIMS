@@ -1,0 +1,5 @@
+@startuml
+class Notifizierung {
+    + {static} SendeNotifizierung() : void
+}
+@enduml

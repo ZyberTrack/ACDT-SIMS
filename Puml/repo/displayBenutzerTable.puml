@@ -1,0 +1,7 @@
+@startuml
+class DisplayBenutzerTable {
+    - connectionString : string
+    + DisplayBenutzerTable(connectionString:string)
+    + ShowTable(table:string) : void
+}
+@enduml

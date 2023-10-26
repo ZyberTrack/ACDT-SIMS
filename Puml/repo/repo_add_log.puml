@@ -1,0 +1,9 @@
+@startuml
+class SecurityIncident {
+    - connectionString : string
+    + SecurityIncident(connectionString:string)
+    + InsertIncident(username:string) : void
+    - SelectSchweregrad() : Schweregrad
+    - SelectStatus() : Status
+}
+@enduml

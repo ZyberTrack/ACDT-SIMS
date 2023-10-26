@@ -1,0 +1,5 @@
+@startuml
+class CheckAdmin {
+    + {static} IsAdmin(username:string, password:string, connectionString:string) : bool
+}
+@enduml

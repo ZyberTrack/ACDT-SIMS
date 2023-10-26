@@ -1,0 +1,7 @@
+@startuml
+class UserRemoval {
+    - connectionString : string
+    + UserRemoval(connectionString:string)
+    + RemoveUser() : void
+}
+@enduml
