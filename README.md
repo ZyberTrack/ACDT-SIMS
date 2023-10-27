@@ -1,9 +1,8 @@
-# ACDT-SIMS
-https://badgen.net/badge/icon/github?icon=github&label https://github.com/ZyberTrack/ACDT-SIMS
-## System Voraussetzungen
-Die Applikation verwendet .NET 7.0. Für die Docker Container benötigt man ein Windows System.
+# ACDT-SIMS Dokumentation
 
 # Funktionen
+Allgemeine Funktionen und Features des Programms
+
 ## Login
 Das ACDT-SIMS verfügt über ein einfaches Authentifizierungssystem mit Benutzernamen und Passwort. Benutzerdaten werden auf einer SQL Datenbank gespeichert und beim Anmeldeversuch abgeglichen. 
 ## Benutzer
@@ -24,5 +23,16 @@ In der Benutzerverwaltung lassen sich neue Benutzer mit der Option 'Benutzer Hin
 Wenn der aktuelle Benutzer in der Benutzerverwaltung gelöscht wird, hat er ab dem Moment keinen Zugriff mehr auf alle Menü Optionen außer 'Ausloggen' und 'Programm Beenden'
 
 
+# Programm Strucktur und Aufbau
+Das ACDT-SIMS arbeitet als Windows Applikation mit einem SQL Server als Dockernetzwerk zusammen.
+
+## Applikation
+ULM-Klassendiagramm:
 ![Klassendiagramm](https://github.com/ZyberTrack/ACDT-SIMS/assets/115556179/97428d3e-ad73-4285-a889-2b90d8b77cbb)
+
+
+## SQL-Datenbank
+Die Datenbank trägt den Namen ISMS-REPO und beinhaltet zwei Relationen. Einen für alle Logs und einen für alle Benutzer. 
+Die Kennwörter der Benutzer werden in Klartext gespeichert, was als klare Sicherheitslücke gilt und in den kommenden Updates behoben werden soll.
+Zusätzlich sind auf die Benutzer Relation zwei Trigger gelegt welche einen Logeintrag tätigen, wenn ein Benutzer entfernt oder hinzugefügt wird.
 
