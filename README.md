@@ -1,5 +1,5 @@
 # ACDT-SIMS
-[Link zur GitHub Repo:](https://badgen.net/badge/icon/github?icon=github&label) https://github.com/ZyberTrack/ACDT-SIMS
+https://badgen.net/badge/icon/github?icon=github&label https://github.com/ZyberTrack/ACDT-SIMS
 ## System Voraussetzungen
 Die Applikation verwendet .NET 7.0. Für die Docker Container benötigt man ein Windows System.
 
