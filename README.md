@@ -31,11 +31,15 @@ Wenn der aktuelle Benutzer in der Benutzerverwaltung gelöscht wird, hat er ab d
 Das ACDT-SIMS arbeitet als Windows Applikation mit einem SQL Server als Dockernetzwerk zusammen.
 
 ## Applikation
-ULM-Klassendiagramm:
+Klassendiagramm:
 ![Klassendiagramm](https://github.com/ZyberTrack/ACDT-SIMS/assets/115556179/97428d3e-ad73-4285-a889-2b90d8b77cbb)
 
 ## SQL-Datenbank
-Die Datenbank trägt den Namen ISMS-REPO und beinhaltet zwei Relationen. Einen für alle Logs und einen für alle Benutzer. 
+ER-Diagramm:
+
+![ER-Diagramm-Grafik](https://github.com/ZyberTrack/ACDT-SIMS/assets/115556179/92637e7b-aa5b-4427-9145-678c8b32ea35)
+
+Die Datenbank trägt den Namen ISMS-REPO und beinhaltet zwei Relationen. Einen für alle Logs und einen für alle Benutzer. Sie lassen sich über den Benutzernamen "vereinen".
 Die Kennwörter der Benutzer werden in Klartext gespeichert, was als klare Sicherheitslücke gilt und in den kommenden Updates behoben werden soll.
 Zusätzlich sind auf die Benutzer Relation zwei Trigger gelegt welche einen Logeintrag tätigen, wenn ein Benutzer entfernt oder hinzugefügt wird.
 
